@@ -3,7 +3,7 @@ services:
   # Backend API
   - type: web
     name: employee-analytics-api
-    runtime: node
+    env: node
     rootDir: backend
     buildCommand: npm install
     startCommand: npm start
@@ -18,8 +18,9 @@ services:
         sync: false
 
   # Frontend (Static Site)
-  - type: static_site
+  - type: web
     name: employee-analytics-frontend
+    env: static
     rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
