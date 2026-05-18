@@ -67,10 +67,9 @@ const employeeSchema = new mongoose.Schema(
   }
 );
 
-// Index for faster department-based filtering
+// Index for faster department-based filtering and performance queries
 employeeSchema.index({ department: 1 });
 employeeSchema.index({ performanceScore: -1 });
-employeeSchema.index({ email: 1 }, { unique: true });
 
 // Virtual: Performance level classification
 employeeSchema.virtual('performanceLevel').get(function () {

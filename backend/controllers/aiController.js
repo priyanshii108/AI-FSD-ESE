@@ -7,8 +7,6 @@
 const Employee = require('../models/Employee');
 
 const OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions';
-const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
-
 /**
  * Helper: Call OpenRouter API with a prompt
  * @param {string} systemPrompt
@@ -16,10 +14,11 @@ const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
  * @returns {string} AI response text
  */
 const callOpenRouter = async (systemPrompt, userPrompt) => {
+  const apiKey = process.env.OPENROUTER_API_KEY;
   const response = await fetch(OPENROUTER_API_URL, {
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${OPENROUTER_API_KEY}`,
+      Authorization: `Bearer ${apiKey}`,
       'Content-Type': 'application/json',
       'HTTP-Referer': 'http://localhost:3000',
       'X-Title': 'Employee Analytics System',

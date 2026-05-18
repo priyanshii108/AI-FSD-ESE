@@ -9,6 +9,9 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
 
+// Load environment variables FIRST
+dotenv.config();
+
 // Import Routes
 const authRoutes = require('./routes/authRoutes');
 const employeeRoutes = require('./routes/employeeRoutes');
@@ -16,9 +19,6 @@ const aiRoutes = require('./routes/aiRoutes');
 
 // Import Middleware
 const errorHandler = require('./middleware/errorHandler');
-
-// Load environment variables
-dotenv.config();
 
 const app = express();
 
