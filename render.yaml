@@ -11,6 +11,8 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
+      - key: NODE_VERSION
+        value: "20"
       - key: MONGO_URI
         sync: false
       - key: JWT_SECRET
@@ -26,5 +28,7 @@ services:
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
     envVars:
+      - key: NODE_VERSION
+        value: "20"
       - key: VITE_API_URL
         sync: false
