@@ -18,7 +18,7 @@ services:
         sync: false
 
   # Frontend (Static Site)
-  - type: static
+  - type: static_site
     name: employee-analytics-frontend
     rootDir: frontend
     buildCommand: npm install && npm run build
